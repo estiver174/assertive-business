@@ -29,22 +29,14 @@ export function SiteHeader() {
         className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
         aria-label="Navegación principal"
       >
-        <a href="#inicio" className="flex items-center gap-3 group" aria-label="ASSERTIVE BUSINESS — Inicio">
-          <svg
-            className="h-12 w-auto"
-            viewBox="0 0 300 64"
-            role="img"
-            aria-label="ASSERTIVE BUSINESS"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Símbolo: barras ascendentes con checkmark */}
-            <g fill="#28E170">
-              <path d="M4 30 L14 40 L34 16 L30 12 L14 31 L8 25 Z" />
-              <rect x="6" y="42" width="7" height="14" rx="1" />
-              <rect x="17" y="34" width="7" height="22" rx="1" />
-              <rect x="28" y="24" width="7" height="32" rx="1" />
-              <rect x="39" y="12" width="7" height="44" rx="1" />
-            </g>
+       <a href="#inicio" className="flex items-center gap-3 group" aria-label="ASSERTIVE BUSINESS - Inicio">
+         <img
+           src="/Logo assertive"
+           alt="Assertive Business Logo"
+           className="h-10 w-auto object-contain"
+           />
+         </a>
+            
             {/* Wordmark */}
             <text
               x="60"
