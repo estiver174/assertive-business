@@ -30,17 +30,17 @@ export function SiteHeader() {
         aria-label="Navegación principal"
       >
        <a href="#inicio" className="flex items-center gap-3 group" aria-label="ASSERTIVE BUSINESS - Inicio">
-         <img
-           src="/Logo assertive"
-           alt="Assertive Business Logo"
-           className="h-10 w-auto object-contain"
-           />
-         </a>
-           
-          <span className="hidden border-l border-white/15 pl-3 text-[0.7rem] font-medium tracking-wide text-slatey sm:block">
-            Precisión que impulsa negocios
-          </span>
-        </a>
+  <img 
+    src="/Logo assertive.png" 
+    alt="Assertive Business Logo" 
+    className="h-10 w-auto object-contain"
+  />
+</a>
+
+<span className="hidden border-1 border-white/15 pl-3 text-[0.7rem] font-medium tracking-wide text-sla
+  Precisión que impulsa negocios
+</span>
+       
 
         <ul className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
