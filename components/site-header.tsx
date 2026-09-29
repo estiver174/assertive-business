@@ -36,31 +36,7 @@ export function SiteHeader() {
            className="h-10 w-auto object-contain"
            />
          </a>
-            
-            {/* Wordmark */}
-            <text
-              x="60"
-              y="30"
-              fill="#ffffff"
-              fontFamily="var(--font-sans, system-ui, sans-serif)"
-              fontSize="20"
-              fontWeight="700"
-              letterSpacing="1.5"
-            >
-              ASSERTIVE
-            </text>
-            <text
-              x="60"
-              y="52"
-              fill="#ffffff"
-              fontFamily="var(--font-sans, system-ui, sans-serif)"
-              fontSize="20"
-              fontWeight="400"
-              letterSpacing="4.5"
-            >
-              BUSINESS
-            </text>
-          </svg>
+           
           <span className="hidden border-l border-white/15 pl-3 text-[0.7rem] font-medium tracking-wide text-slatey sm:block">
             Precisión que impulsa negocios
           </span>
