@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { MessageSquareText } from 'lucide-react'
 
 declare global {
   interface Window {
@@ -21,34 +22,32 @@ export function WhatsappFloat() {
     d.getElementsByTagName("head")[0].appendChild(s)
   }, [])
 
-  return (
-    <>
-      <style jsx global>{`
-        /* Burbuja de texto con fondo verde y letras blancas al lado del botón original de Crisp */
-        .crisp-client .cc-1uoi::before {
-          content: "Chatea con un profesional";
-          position: absolute;
-          right: 70px;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: #22c55e; /* Verde brillante corporativo */
-          color: #ffffff; /* Letras blancas */
-          padding: 10px 16px;
-          border-radius: 12px;
-          font-size: 14px;
-          font-weight: 700;
-          white-space: nowrap;
-          box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
-          pointer-events: none;
-        }
+  // Función para abrir la caja de chat nativa de Crisp al hacer clic
+  const handleOpenChat = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (window.$crisp) {
+      window.$crisp.push(["do", "chat:open"])
+    }
+  }
 
-        /* Ocultar la burbuja en pantallas de celulares muy pequeños para no invadir espacio */
-        @media (max-width: 640px) {
-          .crisp-client .cc-1uoi::before {
-            display: none;
-          }
-        }
-      `}</style>
-    </>
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
+      {/* Etiqueta corporativa con fondo verde y letras blancas */}
+      <div className="hidden sm:flex items-center bg-emerald-500 text-white text-xs md:text-sm font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition-all duration-300 group-hover:scale-105 pointer-events-none">
+        Chatea con un profesional
+      </div>
+
+      {/* Botón flotante idéntico al estilo verde limpio que te gusta */}
+      <button
+        onClick={handleOpenChat}
+        aria-label="Chatea con un profesional"
+        className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#22c55e] hover:bg-[#16a34a] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer focus:outline-none"
+      >
+        <MessageSquareText className="w-7 h-7 md:w-8 md:h-8" />
+        
+        {/* Pequeño punto indicador de estado */}
+        <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-white border-2 border-[#22c55e] rounded-full animate-pulse"></span>
+      </button>
+    </div>
   )
 }
