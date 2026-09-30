@@ -16,15 +16,13 @@ export function LocationSection() {
     const formData = new FormData(e.currentTarget)
     
     // Usamos el servicio seguro y oficial de Formspree con tu correo institucional
-    formData.append('_to', 'info@assertivebusiness.us')
-
-    try {
-      const response = await fetch('https://formspree.io/f/xlgppwaz', {
+    const response = await fetch('https://formspree.io/f/xlgppwaz', {
         method: 'POST',
         body: formData,
         headers: {
           'Accept': 'application/json'
         }
+      })
       })
 
       if (response.ok) {
