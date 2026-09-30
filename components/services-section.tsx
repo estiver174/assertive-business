@@ -1,5 +1,4 @@
 import { Building2, Stamp, FileText, BrainCircuit, ArrowUpRight } from 'lucide-react'
-import { WHATSAPP_URL } from '@/lib/site'
 
 const SERVICES = [
   {
@@ -30,7 +29,7 @@ const SERVICES = [
 
 export function ServicesSection() {
   return (
-    <section className="relative bg-navy py-20 lg:py-28">
+    <section id="servicios" className="relative bg-navy py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-widest text-brand">
@@ -51,10 +50,8 @@ export function ServicesSection() {
             return (
               <a
                 key={service.title}
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex flex-col rounded-2xl border border-white/10 bg-navy-card p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-navy-deep/60"
+                href="#contacto"
+                className="group relative flex flex-col rounded-2xl border border-white/10 bg-navy-card p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-navy-deep/60 cursor-pointer"
               >
                 <ArrowUpRight className="absolute right-5 top-5 h-5 w-5 text-slatey/40 transition-colors group-hover:text-brand" />
                 <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-navy">
