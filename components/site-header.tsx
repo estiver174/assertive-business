@@ -29,11 +29,11 @@ export function SiteHeader() {
         className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
         aria-label="Navegación principal"
       >
-       <a href="#inicio" className="flex items-center gap-3 group py-1" aria-label="ASSERTIVE BUSINESS - Inicio">
+      <a href="#inicio" className="flex items-center gap-3 group py-1" aria-label="ASSERTIVE BUSINESS - Inicio">
           <img 
             src="/Logo assertive.png" 
             alt="Assertive Business Logo" 
-            className="h-12 w-auto object-contain max-h-none"
+            className="h-16 w-auto min-w-[140px] object-contain scale-125"
           />
         </a>
        
