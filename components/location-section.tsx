@@ -61,7 +61,7 @@ export function LocationSection() {
               className="space-y-4"
             >
               {/* Clave de acceso pública vinculada a tu correo */}
-              <input type="hidden" name="access_key" value="535a3964-b054-477b-84a1-db9b015e5a26" />
+              <input type="hidden" name="access_key" value="1c0b60d2-d866-4fd6-91d1-5868fc00f7b5" />
               <input type="hidden" name="subject" value="Nuevo mensaje desde la web de Assertive Business" />
               <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
