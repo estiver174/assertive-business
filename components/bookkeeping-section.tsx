@@ -7,7 +7,6 @@ import {
   TrendingUp,
   MessageCircle,
 } from 'lucide-react'
-import { WHATSAPP_URL } from '@/lib/site'
 
 const FEATURES = [
   {
@@ -73,9 +72,7 @@ export function BookkeepingSection() {
             </div>
 
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contacto"
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 text-base font-semibold text-navy transition-all hover:bg-brand-light hover:shadow-xl hover:shadow-brand/30"
             >
               <MessageCircle className="h-5 w-5" />
