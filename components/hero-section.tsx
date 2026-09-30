@@ -32,15 +32,13 @@ export function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 text-base font-semibold text-navy transition-all hover:bg-brand-light hover:shadow-xl hover:shadow-brand/30"
-            >
-              <MessageCircle className="h-5 w-5" />
-              Escríbenos por WhatsApp
-            </a>
+           <a
+            href="#contacto"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 text-base font-semibold text-navy shadow-xl shadow-brand/20 transition-all hover:bg-brand-light hover:shadow-brand/40"
+          >
+            <MessageCircle className="h-5 w-5" />
+            Contáctanos
+          </a>
             <a
               href="#servicios"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition-all hover:border-brand hover:text-brand"
