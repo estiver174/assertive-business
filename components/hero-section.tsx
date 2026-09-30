@@ -20,8 +20,8 @@ export function HeroSection() {
           </span>
 
           <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Contabilidad, impuestos y creación de empresas,{' '}
-            <span className="text-brand">sin complicaciones</span>.
+            Soluciones contables, fiscales y corporativas con{' '}
+            <span className="text-brand">rigor estratégico.</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-slatey">
