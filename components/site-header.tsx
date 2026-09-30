@@ -54,13 +54,11 @@ export function SiteHeader() {
         </ul>
 
         <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contacto"
           className="hidden items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-navy shadow-lg shadow-brand/20 transition-all hover:bg-brand-light hover:shadow-brand/40 lg:inline-flex"
         >
           <MessageCircle className="h-4 w-4" />
-          Agendar Asesoría
+          Contáctanos
         </a>
 
         <button
