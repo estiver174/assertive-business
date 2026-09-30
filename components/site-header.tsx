@@ -29,10 +29,15 @@ export function SiteHeader() {
         className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
         aria-label="Navegación principal"
       >
-        <a href="#inicio" className="flex items-center gap-2 group" aria-label="ASSERTIVE BUSINESS - Inicio">
-          <span className="text-xl font-bold tracking-wider text-white">
-            ASSERTIVE <span className="text-brand">BUSINESS</span>
-          </span>
+        <a href="#inicio" className="flex items-center gap-3 group" aria-label="ASSERTIVE BUSINESS - Inicio">
+          <div className="flex flex-col">
+            <span className="text-xl font-bold tracking-wider text-white">
+              ASSERTIVE <span className="text-brand">BUSINESS</span>
+            </span>
+            <span className="hidden text-[0.65rem] font-medium tracking-widest text-slate sm:inline-block">
+              Precisión que impulsa negocios
+            </span>
+          </div>
         </a>
 
         <ul className="hidden items-center gap-7 lg:flex">
