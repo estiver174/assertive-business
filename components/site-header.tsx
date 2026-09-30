@@ -29,12 +29,14 @@ export function SiteHeader() {
         className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
         aria-label="Navegación principal"
       >
-      <a href="#inicio" className="flex items-center gap-3 group py-1" aria-label="ASSERTIVE BUSINESS - Inicio">
-          <img 
-            src="/Logo assertive.png" 
-            alt="Assertive Business Logo" 
-            className="h-16 w-auto min-w-[140px] object-contain scale-125"
-          />
+     <a href="#inicio" className="flex items-center gap-3 group py-1" aria-label="ASSERTIVE BUSINESS - Inicio">
+          <div className="overflow-hidden h-12 w-44 relative">
+            <img 
+              src="/Logo assertive.png" 
+              alt="Assertive Business Logo" 
+              className="absolute -top-1 left-0 w-full object-cover scale-150 origin-top"
+            />
+          </div>
         </a>
        
 
