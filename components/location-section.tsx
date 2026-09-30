@@ -1,8 +1,41 @@
 'use client'
 
-import { MapPin, Mail, Phone, Send } from 'lucide-react'
+import { useState } from 'react'
+import { MapPin, Mail, Phone, Send, CheckCircle2 } from 'lucide-react'
 
 export function LocationSection() {
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setError(false)
+
+    const formData = new FormData(e.currentTarget)
+
+    try {
+      const response = await fetch('https://formspree.io/f/xjykzegg', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        setError(true)
+      }
+    } catch (err) {
+      setError(true)
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <section id="contacto" className="bg-navy-deep py-24 text-white">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -50,69 +83,86 @@ export function LocationSection() {
             </div>
           </div>
 
-          {/* Columna del Formulario Nativo Directo */}
+          {/* Columna del Formulario Seguro */}
           <div className="rounded-2xl bg-navy p-8 border border-white/10 shadow-xl">
             <h3 className="text-xl font-bold text-white mb-2">Solicita tu Asesoría</h3>
             <p className="text-sm text-slate-300 mb-6">Completa el formulario y un especialista te contactará.</p>
             
-            <form 
-              action="https://formspree.io/f/xjykzegg" 
-              method="POST"
-              className="space-y-4"
-            >
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">Nombre Completo</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  required 
-                  placeholder="Ej. Carlos Mendoza"
-                  className="w-full rounded-lg bg-navy-deep px-4 py-2.5 text-sm text-white border border-white/25 focus:border-brand outline-none transition-all"
-                />
+            {submitted ? (
+              <div className="rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-6 text-center space-y-3">
+                <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-400" />
+                <h4 className="text-lg font-bold text-white">¡Solicitud Enviada con Éxito!</h4>
+                <p className="text-sm text-slate-300">
+                  Hemos recibido tus datos correctamente. Nos pondremos en contacto contigo a la brevedad en <span className="text-brand font-medium">info@assertivebusiness.us</span>.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-2 text-xs font-semibold text-brand underline hover:text-brand-light cursor-pointer"
+                >
+                  Enviar otro mensaje
+                </button>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">Correo Electrónico</label>
+                  <label className="block text-xs font-medium text-slate-300 mb-1">Nombre Completo</label>
                   <input 
-                    type="email" 
-                    name="email"
+                    type="text" 
+                    name="name"
                     required 
-                    placeholder="correo@empresa.com"
+                    placeholder="Ej. Carlos Mendoza"
                     className="w-full rounded-lg bg-navy-deep px-4 py-2.5 text-sm text-white border border-white/25 focus:border-brand outline-none transition-all"
                   />
                 </div>
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">Teléfono</label>
-                  <input 
-                    type="tel" 
-                    name="phone"
-                    required 
-                    placeholder="+1 (832) ..."
-                    className="w-full rounded-lg bg-navy-deep px-4 py-2.5 text-sm text-white border border-white/25 focus:border-brand outline-none transition-all"
-                  />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1">Correo Electrónico</label>
+                    <input 
+                      type="email" 
+                      name="email"
+                      required 
+                      placeholder="correo@empresa.com"
+                      className="w-full rounded-lg bg-navy-deep px-4 py-2.5 text-sm text-white border border-white/25 focus:border-brand outline-none transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1">Teléfono</label>
+                    <input 
+                      type="tel" 
+                      name="phone"
+                      required 
+                      placeholder="+1 (832) ..."
+                      className="w-full rounded-lg bg-navy-deep px-4 py-2.5 text-sm text-white border border-white/25 focus:border-brand outline-none transition-all"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">Descripción del Servicio Deseado</label>
-                <textarea 
-                  name="message"
-                  rows={4}
-                  required 
-                  placeholder="Cuéntanos brevemente qué necesitas (contabilidad, impuestos, creación de empresa...)"
-                  className="w-full rounded-lg bg-navy-deep px-4 py-2.5 text-sm text-white border border-white/25 focus:border-brand outline-none transition-all resize-none"
-                ></textarea>
-              </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-300 mb-1">Descripción del Servicio Deseado</label>
+                  <textarea 
+                    name="message"
+                    rows={4}
+                    required 
+                    placeholder="Cuéntanos brevemente qué necesitas (contabilidad, impuestos, creación de empresa...)"
+                    className="w-full rounded-lg bg-navy-deep px-4 py-2.5 text-sm text-white border border-white/25 focus:border-brand outline-none transition-all resize-none"
+                  ></textarea>
+                </div>
 
-              <button 
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 rounded-lg bg-brand py-3 text-sm font-semibold text-navy transition-all hover:bg-brand-light shadow-lg shadow-brand/20 cursor-pointer"
-              >
-                <Send className="h-4 w-4" />
-                Enviar Solicitud
-              </button>
-            </form>
+                {error && (
+                  <p className="text-xs text-red-400">Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.</p>
+                )}
+
+                <button 
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full flex items-center justify-center gap-2 rounded-lg bg-brand py-3 text-sm font-semibold text-navy transition-all hover:bg-brand-light shadow-lg shadow-brand/20 cursor-pointer disabled:opacity-50"
+                >
+                  <Send className="h-4 w-4" />
+                  {submitting ? 'Enviando solicitud...' : 'Enviar Solicitud'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
