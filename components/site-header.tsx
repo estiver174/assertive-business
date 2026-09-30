@@ -32,7 +32,7 @@ export function SiteHeader() {
      <a href="#inicio" className="flex items-center gap-3 group py-1" aria-label="ASSERTIVE BUSINESS - Inicio">
           <div className="overflow-hidden h-12 w-44 relative">
             <img 
-              src="/Logo assertive.png" 
+              src="/Logo assertive.jpg" 
               alt="Assertive Business Logo" 
               className="absolute -top-1 left-0 w-full object-cover scale-150 origin-top"
             />
